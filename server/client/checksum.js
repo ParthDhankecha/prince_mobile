@@ -159,39 +159,29 @@ router.post(
 
                               post_res.on('end', function () {
                                 console.log('Response: ', response);
+                                res.status(200).json({
+                                  status: "1",
+                                  message: "Checksum generated successfully.",
+                                  checksum: response.body.txnToken,
+                                  order_id: result.insertId.toString(),
+                                  mid: process.env.MID,
+                                  cust_id: req.userId.toString(),
+                                  industry_type_id: process.env.INDUTYPEID,
+                                  channel_id: process.env.CHANNELID,
+                                  txn_amount: price.toString(),
+                                  website: process.env.WEBSITE,
+                                  callback_url:
+                                    "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                    result.insertId,
+                                  email: user[0].email,
+                                  mobile_no: user[0].mobile1
+                                });
                               });
                             });
 
                             post_req.write(post_data);
                             post_req.end();
 
-
-
-                            axios.post(`${process.env.CREATE_CHECKSUM_URL.replace("{mid}", paramarray.mid).replace("{orderId}", paramarray.orderId)}`, {
-                              "body": paramarray,
-                              "head": {
-                                "signature": checksum
-                              }
-                            }).then(function (body) {
-                              console.log(body.data)
-                              res.status(200).json({
-                                status: "1",
-                                message: "Checksum generated successfully.",
-                                checksum: checksum,
-                                order_id: result.insertId.toString(),
-                                mid: process.env.MID,
-                                cust_id: req.userId.toString(),
-                                industry_type_id: process.env.INDUTYPEID,
-                                channel_id: process.env.CHANNELID,
-                                txn_amount: price.toString(),
-                                website: process.env.WEBSITE,
-                                callback_url:
-                                  "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
-                                  result.insertId,
-                                email: user[0].email,
-                                mobile_no: user[0].mobile1
-                              });
-                            });
                           }).catch(function (error) { });
                         } else {
                           res.status(200).json({
