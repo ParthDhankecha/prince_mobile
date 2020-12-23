@@ -111,7 +111,7 @@ router.post(
                           // // paramarray["EMAIL"] = "pmdhankecha.18@gmail.com"; // customer email id
                           // paramarray["MOBILE_NO"] = user[0].mobile1; // customer 10 digit mobile no.
                           var paytmChecksum = Paytm.generateSignature(
-                            paramarray,
+                            JSON.stringify(paramarray),
                             paytm_config.MERCHANT_KEY);
                           paytmChecksum.then(function (checksum) {
                             console.log(checksum);
