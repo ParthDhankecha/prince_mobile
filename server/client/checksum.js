@@ -161,6 +161,23 @@ router.post(
                                 console.log('Response: ', response);
                                 let query = `update paytm_details set token='${JSON.parse(response).body.txnToken}' where id=${paramarray.orderId}`;
                                 con.query(query);
+                                console.log("1: ", {
+                                  status: "1",
+                                  message: "Checksum generated successfully.",
+                                  checksum: checksum,
+                                  order_id: result.insertId.toString(),
+                                  mid: process.env.MID,
+                                  cust_id: req.userId.toString(),
+                                  industry_type_id: process.env.INDUTYPEID,
+                                  channel_id: process.env.CHANNELID,
+                                  txn_amount: price.toString(),
+                                  website: process.env.WEBSITE,
+                                  callback_url:
+                                    "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                    result.insertId,
+                                  email: user[0].email,
+                                  mobile_no: user[0].mobile1
+                                });
                                 res.status(200).json({
                                   status: "1",
                                   message: "Checksum generated successfully.",
