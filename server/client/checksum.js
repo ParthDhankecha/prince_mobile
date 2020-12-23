@@ -162,7 +162,7 @@ router.post(
                                 res.status(200).json({
                                   status: "1",
                                   message: "Checksum generated successfully.",
-                                  checksum: response.body.txnToken,
+                                  checksum: JSON.parse(response).body.txnToken,
                                   order_id: result.insertId.toString(),
                                   mid: process.env.MID,
                                   cust_id: req.userId.toString(),
