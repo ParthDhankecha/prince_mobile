@@ -430,6 +430,7 @@ router.post("/verify_checksum", auth.verifyToken, (req, res) => {
       }
     };
     Paytm.generateSignature(JSON.stringify(params.body), paytm_config.MERCHANT_KEY).then(verifyChecksum => {
+      const https = require('https');
       params.head = {
         signature: verifyChecksum
       };
