@@ -433,7 +433,7 @@ router.post("/verify_checksum", auth.verifyToken, (req, res) => {
       params.head = {
         signature: verifyChecksum
       };
-      var post_data = JSON.stringify(paytmParams);
+      var post_data = JSON.stringify(params);
 
       var options = {
 
