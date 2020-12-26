@@ -905,6 +905,7 @@ router.post("/verify_checksum", auth.verifyToken, (req, res) => {
       post_req.write(post_data);
       post_req.end();
     }).catch(err => {
+      console.log(err);
       console.log("Transaction Status Verification => failed");
       res.json({ status: "0", message: "Payment failed. Please try again." });
     });
