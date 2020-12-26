@@ -463,7 +463,7 @@ router.post("/verify_checksum", auth.verifyToken, (req, res) => {
         post_res.on('end', function () {
           console.log("Response", response);
           response = JSON.parse(response);
-          if (response.resultInfo.resultCode == "01") {
+          if (response.body.resultInfo.resultCode == "01") {
             let sql =
               "update paytm_details set paytm_order_id='" +
               decodedBody.TXNID +
