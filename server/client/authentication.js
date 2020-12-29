@@ -351,7 +351,7 @@ router.post(
               message: "User not registered. Try again later"
             });
           } else {
-            let http = require("https");
+            let http = require("http");
             let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is" +
               String(otp) + "&MobileNumbers=" + user.mobile + process.env.SMSLAST;
             // let path =
@@ -500,7 +500,7 @@ router.post(
             .status(200)
             .json({ status: "0", message: "OTP not sent. Please try again" });
         } else {
-          let http = require("https");
+          let http = require("http");
           let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is " +
             String(otp) + "&MobileNumbers=" + data[0].mobile1 + process.env.SMSLAST;
           // let path =
@@ -608,7 +608,7 @@ router.post("/forget-password", (req, res) => {
                 message: "Forgot password request is not accepted."
               });
             } else {
-              let http = require("https");
+              let http = require("http");
               let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your Reset Password OTP is " +
                 String(otp) + ". Please don't share it with anyone." + "&MobileNumbers=" + result[0].mobile1 + process.env.SMSLAST;
               console.log(path);
