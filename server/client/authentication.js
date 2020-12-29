@@ -352,7 +352,7 @@ router.post(
             });
           } else {
             let http = require("http");
-            let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is" +
+            let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is " +
               String(otp) + "&MobileNumbers=91" + user.mobile + process.env.SMSLAST;
             // let path =
             //   process.env.SMSPARAMS +
@@ -364,7 +364,9 @@ router.post(
             //   process.env.SMSLAST;
             console.log(path)
 
-            http.get(process.env.SMSHOST + path, res => { });
+            http.get(process.env.SMSHOST + path, resp => {
+              console.log(resp)
+            });
             res
               .status(200)
               .json({ status: "1", message: "User registered successfully." });
