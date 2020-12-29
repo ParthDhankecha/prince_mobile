@@ -525,7 +525,16 @@ router.post(
           //   "&msg= " +
           //   String(otp) +
           //   process.env.SMSLAST;
-          http.get(process.env.SMSHOST + path, res => { });
+          // http.get(process.env.SMSHOST + path, res => { });
+          const axios = require('axios');
+          axios.get(process.env.SMSHOST + path).then(op => {
+            console.log(op.data)
+            // return res.status(200).json(op.data)
+          })
+            .catch(error => {
+              console.log("error", error)
+              console.log(error.message)
+            });
           res
             .status(200)
             .json({ status: "1", message: "OTP send successfully." });
@@ -626,7 +635,16 @@ router.post("/forget-password", (req, res) => {
               let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your Reset Password OTP is " +
                 String(otp) + ". Please don't share it with anyone." + "&MobileNumbers=91" + result[0].mobile1 + process.env.SMSLAST;
               console.log(path);
-              http.get(process.env.SMSHOST + path, res => { });
+              // http.get(process.env.SMSHOST + path, res => { });
+              const axios = require('axios');
+              axios.get(process.env.SMSHOST + path).then(op => {
+                console.log(op.data)
+                // return res.status(200).json(op.data)
+              })
+                .catch(error => {
+                  console.log("error", error)
+                  console.log(error.message)
+                });
               res.json({
                 status: "1",
                 message:
