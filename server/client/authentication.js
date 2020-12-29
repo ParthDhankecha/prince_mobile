@@ -368,7 +368,7 @@ router.post(
               rejectUnauthorized: false
             });
             const axios = require('axios');
-            axios.get(process.env.SMSHOST + path, { httpsAgent: agent }).then(op => {
+            axios.get(process.env.SMSHOST + path).then(op => {
               console.log(op.data)
               // return res.status(200).json(op.data)
             })
