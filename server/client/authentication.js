@@ -363,22 +363,22 @@ router.post(
             //   String(otp) +
             //   process.env.SMSLAST;
             console.log(path)
-            const https = require('http');
-            const agent = new https.Agent({
-              rejectUnauthorized: false
-            });
-            const axios = require('axios');
-            axios.get(process.env.SMSHOST + encodeURI(path)).then(op => {
-              console.log(op.data)
-              // return res.status(200).json(op.data)
-            })
-              .catch(error => {
-                console.log("error", error)
-                console.log(error.message)
-              });
-            // http.get(process.env.SMSHOST + path, resp => {
-            //   console.log()
+            const http = require('http');
+            // const agent = new https.Agent({
+            //   rejectUnauthorized: false
             // });
+            // const axios = require('axios');
+            // axios.get(process.env.SMSHOST + encodeURI(path)).then(op => {
+            //   console.log(op.data)
+            //   // return res.status(200).json(op.data)
+            // })
+            //   .catch(error => {
+            //     console.log("error", error)
+            //     console.log(error.message)
+            //   });
+            http.get(process.env.SMSHOST + path, resp => {
+              console.log()
+            });
             res
               .status(200)
               .json({ status: "1", message: "User registered successfully." });
