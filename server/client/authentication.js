@@ -353,7 +353,7 @@ router.post(
           } else {
             let http = require("http");
             let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is" +
-              String(otp) + "&MobileNumbers=" + user.mobile + process.env.SMSLAST;
+              String(otp) + "&MobileNumbers=91" + user.mobile + process.env.SMSLAST;
             // let path =
             //   process.env.SMSPARAMS +
             //   user.mobile +
@@ -502,7 +502,7 @@ router.post(
         } else {
           let http = require("http");
           let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your mobile number verification OTP is " +
-            String(otp) + "&MobileNumbers=" + data[0].mobile1 + process.env.SMSLAST;
+            String(otp) + "&MobileNumbers=91" + data[0].mobile1 + process.env.SMSLAST;
           // let path =
           //   process.env.SMSPARAMS +
           //   data[0].mobile1 +
@@ -610,7 +610,7 @@ router.post("/forget-password", (req, res) => {
             } else {
               let http = require("http");
               let path = process.env.SMSPARAMS + process.env.SMSSENDERID + "&Is_Unicode=false&Is_Flash=false&Message=Your Reset Password OTP is " +
-                String(otp) + ". Please don't share it with anyone." + "&MobileNumbers=" + result[0].mobile1 + process.env.SMSLAST;
+                String(otp) + ". Please don't share it with anyone." + "&MobileNumbers=91" + result[0].mobile1 + process.env.SMSLAST;
               console.log(path);
               http.get(process.env.SMSHOST + path, res => { });
               res.json({
