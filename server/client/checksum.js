@@ -97,7 +97,7 @@ router.post(
                           paramarray["websiteName"] = process.env.WEBSITE; //Provided by Paytm
                           paramarray["orderId"] = result.insertId.toString(); //unique OrderId for every req
                           paramarray["callbackUrl"] =
-                            "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                            "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" +
                             // "https://merchant.com/callback";
                             result.insertId.toString(); //Provided by Paytm
                           paramarray["txnAmount"] = {
@@ -137,7 +137,7 @@ router.post(
                             var options = {
 
                               /* for Staging */
-                              hostname: 'securegw-stage.paytm.in',
+                              hostname: 'securegw.paytm.in',
 
                               /* for Production */
                               // hostname: 'securegw.paytm.in',
@@ -174,7 +174,7 @@ router.post(
                                   txn_amount: price.toString(),
                                   website: process.env.WEBSITE,
                                   callback_url:
-                                    "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                    "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" +
                                     result.insertId,
                                   email: user[0].email,
                                   mobile_no: user[0].mobile1
@@ -192,7 +192,7 @@ router.post(
                                   txn_amount: price.toString(),
                                   website: process.env.WEBSITE,
                                   callback_url:
-                                    "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                    "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" +
                                     result.insertId,
                                   email: user[0].email,
                                   mobile_no: user[0].mobile1
@@ -274,7 +274,7 @@ router.post(
                                   paramarray["websiteName"] = process.env.WEBSITE; //Provided by Paytm
                                   paramarray["orderId"] = result.insertId.toString(); //unique OrderId for every req
                                   paramarray["callbackUrl"] =
-                                    "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                    "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" +
                                     // "https://merchant.com/callback";
                                     result.insertId.toString(); //Provided by Paytm
                                   paramarray["txnAmount"] = {
@@ -314,7 +314,7 @@ router.post(
                                     var options = {
 
                                       /* for Staging */
-                                      hostname: 'securegw-stage.paytm.in',
+                                      hostname: 'securegw.paytm.in',
 
                                       /* for Production */
                                       // hostname: 'securegw.paytm.in',
@@ -351,7 +351,7 @@ router.post(
                                           txn_amount: price.toString(),
                                           website: process.env.WEBSITE,
                                           callback_url:
-                                            "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=" +
+                                            "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" +
                                             result.insertId,
                                           email: user[0].email,
                                           mobile_no: user[0].mobile1
@@ -439,7 +439,7 @@ router.post("/verify_checksum", auth.verifyToken, (req, res) => {
       var options = {
 
         /* for Staging */
-        hostname: 'securegw-stage.paytm.in',
+        hostname: 'securegw.paytm.in',
 
         /* for Production */
         // hostname: 'securegw.paytm.in',
