@@ -526,6 +526,7 @@ router.post(
           //   String(otp) +
           //   process.env.SMSLAST;
           // http.get(process.env.SMSHOST + path, res => { });
+          console.log(path);
           const axios = require('axios');
           axios.get(process.env.SMSHOST + path).then(op => {
             console.log(op.data)
