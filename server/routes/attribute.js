@@ -107,11 +107,8 @@ router.get(
     } else {
       let sql =
         "select * from attribute_value where attribute_id=" +
-        req.params.attribute_id +
-        " limit " +
-        req.params.up +
-        "," +
-        process.env.RECORD_LIMIT;
+        req.params.attribute_id;
+      process.env.RECORD_LIMIT;
       con.query(sql, (err, result) => {
         if (err) {
           if (process.env.DEVELOPMENT) {
