@@ -285,12 +285,13 @@ router.post(
                             image: process.env.CATEGORY + images[i]
                           };
                         }
+                        let currentPage = parseInt(data.pageno.toString()) + 1;
                         if (result.length > 0) {
                           res.status(200).json({
                             status: "1",
                             message: "Getting Products successfully.",
                             products: result,
-                            currentPage: (parseInt(data.pageno.toString()) + 1).toString(),
+                            currentPage: currentPage.toString(),
                             totalPages: totalPages.toString(),
                             totalProduct: count[0].total.toString(),
                             category_image: images
@@ -304,13 +305,14 @@ router.post(
                       });
                     }
                   } else {
+                    let currentPage = parseInt(data.pageno.toString()) + 1;
                     let totalPages = Math.ceil(count[0].total / limit);
                     if (result.length > 0) {
                       res.status(200).json({
                         status: "1",
                         message: "Getting Products successfully.",
                         products: result,
-                        currentPage: (parseInt(data.pageno.toString()) + 1).toString(),
+                        currentPage: currentPage.toString(),
                         totalPages: totalPages.toString(),
                         totalProduct: count[0].total.toString(),
                         category_image: []
