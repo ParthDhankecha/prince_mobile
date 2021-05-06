@@ -166,6 +166,7 @@ router.post(
       let sql;
       let status = true;
       let countSql;
+      let pageno = data.pageno;
       if (data.pageno < 1) {
         res
           .status(200)
@@ -285,14 +286,12 @@ router.post(
                             image: process.env.CATEGORY + images[i]
                           };
                         }
-                        let currentPage = parseInt(data.pageno.toString()) + 1;
-                        console.log(currentPage, data.pageno);
                         if (result.length > 0) {
                           res.status(200).json({
                             status: "1",
                             message: "Getting Products successfully.",
                             products: result,
-                            currentPage: currentPage.toString(),
+                            currentPage: (pageno + 1).toString(),
                             totalPages: totalPages.toString(),
                             totalProduct: count[0].total.toString(),
                             category_image: images
@@ -306,15 +305,13 @@ router.post(
                       });
                     }
                   } else {
-                    let currentPage = parseInt(data.pageno.toString()) + 1;
                     let totalPages = Math.ceil(count[0].total / limit);
-                    console.log(currentPage, data.pageno);
                     if (result.length > 0) {
                       res.status(200).json({
                         status: "1",
                         message: "Getting Products successfully.",
                         products: result,
-                        currentPage: currentPage.toString(),
+                        currentPage: (pageno + 1).toString(),
                         totalPages: totalPages.toString(),
                         totalProduct: count[0].total.toString(),
                         category_image: []
