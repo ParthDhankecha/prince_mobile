@@ -286,7 +286,7 @@ router.post(
                           };
                         }
                         let currentPage = parseInt(data.pageno.toString()) + 1;
-                        console.log(currentPage);
+                        console.log(currentPage, data.pageno);
                         if (result.length > 0) {
                           res.status(200).json({
                             status: "1",
@@ -308,7 +308,7 @@ router.post(
                   } else {
                     let currentPage = parseInt(data.pageno.toString()) + 1;
                     let totalPages = Math.ceil(count[0].total / limit);
-                    console.log(currentPage);
+                    console.log(currentPage, data.pageno);
                     if (result.length > 0) {
                       res.status(200).json({
                         status: "1",
