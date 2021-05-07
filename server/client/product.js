@@ -291,7 +291,7 @@ router.post(
                             status: "1",
                             message: "Getting Products successfully.",
                             products: result,
-                            currentPage: (pageno + 1).toString(),
+                            currentPage: (parseInt(pageno) + 1).toString(),
                             totalPages: totalPages.toString(),
                             totalProduct: count[0].total.toString(),
                             category_image: images
@@ -311,7 +311,7 @@ router.post(
                         status: "1",
                         message: "Getting Products successfully.",
                         products: result,
-                        currentPage: (pageno + 1).toString(),
+                        currentPage: (parseInt(pageno) + 1).toString(),
                         totalPages: totalPages.toString(),
                         totalProduct: count[0].total.toString(),
                         category_image: []
