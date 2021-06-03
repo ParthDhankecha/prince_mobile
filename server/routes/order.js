@@ -532,7 +532,7 @@ function bookShipment(order, res) {
           orderdata.total_weight = 0.05;
         }
         let shipment = {
-          PickupCode: "1",
+          PickupCode: "14",
           ShowDiffrenceSender: "Yes",
           SenderName: "Prince Mobile",
           SenderMobile: "9737156066",
