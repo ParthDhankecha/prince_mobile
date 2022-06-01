@@ -46,7 +46,7 @@
     "nodemailer": "^6.3.1",
     "paytmchecksum": "^1.5.0",
     "rxjs": "~6.4.0",
-    "sharp": "^0.23.2",
+    "sharp": "^0.30.5",
     "ts-md5": "^1.2.7",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
